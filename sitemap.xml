@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://afroproject.africa/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://afroproject.africa/problem.html</loc><priority>0.9</priority></url>
+  <url><loc>https://afroproject.africa/solution.html</loc><priority>0.9</priority></url>
+  <url><loc>https://afroproject.africa/architecture.html</loc><priority>0.8</priority></url>
+  <url><loc>https://afroproject.africa/research.html</loc><priority>0.9</priority></url>
+  <url><loc>https://afroproject.africa/policy.html</loc><priority>0.8</priority></url>
+  <url><loc>https://afroproject.africa/about.html</loc><priority>0.7</priority></url>
+  <url><loc>https://afroproject.africa/contact.html</loc><priority>0.7</priority></url>
+  <url><loc>https://afroproject.africa/blog.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://afroproject.africa/blog/003-kan-explained-from-scratch.html</loc><priority>0.8</priority></url>
+  <url><loc>https://afroproject.africa/blog/002-cointegration-marriage-license.html</loc><priority>0.8</priority></url>
+  <url><loc>https://afroproject.africa/blog/001-why-africa-needs-digital-currency.html</loc><priority>0.8</priority></url>
+</urlset>

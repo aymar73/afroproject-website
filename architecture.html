@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a1128">
+
+  <!-- Primary Meta Tags -->
+  <title>PAGE_TITLE — The Afro Project</title>
+  <meta name="title" content="PAGE_TITLE — The Afro Project">
+  <meta name="description" content="PAGE_DESCRIPTION">
+  <meta name="author" content="Aymar Makanda">
+  <meta name="keywords" content="African monetary union, cointegration, digital currency, CBDC, AfCFTA, MARL, KAN, PhD research">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://afroproject.africa/PAGE_URL">
+  <meta property="og:title" content="PAGE_TITLE — The Afro Project">
+  <meta property="og:description" content="PAGE_DESCRIPTION">
+  <meta property="og:image" content="https://afroproject.africa/assets/img/og-image.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PAGE_TITLE — The Afro Project">
+  <meta name="twitter:description" content="PAGE_DESCRIPTION">
+  <meta name="twitter:image" content="https://afroproject.africa/assets/img/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/afro.css">
+
+  <!-- MathJax (only include on pages with formulas) -->
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a href="/" class="nav-brand" aria-label="The Afro Project — home">
+      <svg class="nav-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+        <circle cx="50" cy="30" r="20" stroke="#f5b342" stroke-width="3" fill="none"/>
+        <circle cx="32" cy="65" r="20" stroke="#2d6b52" stroke-width="3" fill="none"/>
+        <circle cx="68" cy="65" r="20" stroke="#2a7ab8" stroke-width="3" fill="none"/>
+        <circle cx="50" cy="53" r="4" fill="#f5b342"/>
+      </svg>
+      Afro Project
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/" data-page="home">Home</a></li>
+      <li><a href="/problem.html" data-page="problem">Problem</a></li>
+      <li><a href="/solution.html" data-page="solution">Solution</a></li>
+      <li><a href="/architecture.html" data-page="architecture">Architecture</a></li>
+      <li><a href="/research.html" data-page="research">Research</a></li>
+      <li><a href="/policy.html" data-page="policy">Policy</a></li>
+      <li><a href="/blog.html" data-page="blog">Journal</a></li>
+      <li><a href="/contact.html" class="nav-cta" data-page="contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="section">
+  <div class="container-narrow">
+    <span class="blog-kicker">Chapter 3</span>
+    <h1>Architecture</h1>
+    <p class="lead">
+      The technical heart of the Afro Project: cointegration, VECM, KAN discovery,
+      multi-agent RL, and algorithmic enforcement.
+    </p>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="container-narrow">
+
+    <h2>1. Cointegration Analysis</h2>
+    <p>
+      We use the <strong>Johansen Trace Test</strong> to identify economically
+      synchronized country groups. The test determines whether a linear combination
+      of non-stationary time series is stationary — the statistical equivalent of a
+      long-run equilibrium.
+    </p>
+    <pre><code>LR_trace(r) = -T · Σ ln(1 - λ_i)</code></pre>
+    <p>
+      If the trace statistic exceeds the 95% critical value, we reject the null
+      hypothesis of no cointegration. The result is a set of country groups with
+      a shared long-run equilibrium.
+    </p>
+
+    <h2>2. VECM & Error Correction Mechanism</h2>
+    <p>
+      The Vector Error Correction Model (VECM) measures how far each country has
+      deviated from its zone's equilibrium. The deviation becomes the trigger for
+      algorithmic enforcement.
+    </p>
+    <pre><code>ΔY_t = αβ'Y_{t-1} + Γ₁ΔY_{t-1} + Γ₂ΔY_{t-2} + ε_t
+
+Where:
+  α  = adjustment coefficients (speed of convergence)
+  β  = cointegrating vector (long-run equilibrium)
+  Γ  = short-run coefficients
+  ε  = error term</code></pre>
+
+    <h2>3. KAN as a Discovery Engine</h2>
+    <p>
+      Kolmogorov-Arnold Networks are not just a forecasting tool. They are a
+      <strong>discovery engine</strong>. Each KAN edge is a learnable 1D function.
+      After training, we can extract the learned functions as symbolic formulas,
+      revealing economic laws that no economist has written down.
+    </p>
+    <p>
+      For example, KAN might discover that the effect of oil prices on CEMAC inflation
+      is <em>asymmetric</em>: linear on the upside, quadratic on the downside. This
+      is a novel finding that standard linear econometrics cannot detect.
+    </p>
+    <pre><code>φ(oil) = 0.1·oil + 0.7·max(0, -oil)²</code></pre>
+
+    <h2>4. Multi-Agent RL Governance</h2>
+    <p>
+      Each central bank has its own KAN-based RL agent. These agents communicate,
+      negotiate, and learn cooperative policies that balance national sovereignty
+      with zone-wide stability.
+    </p>
+    <p>
+      The reward function prioritizes:
+    </p>
+    <ul>
+      <li><strong>Zone stability</strong> — minimize inflation variance</li>
+      <li><strong>Fairness</strong> — do not punish countries for external shocks</li>
+      <li><strong>Growth</strong> — maximize GDP growth within the zone</li>
+    </ul>
+
+    <h2>5. Algorithmic Enforcement</h2>
+    <p>
+      A Hyperledger Fabric smart contract enforces the ECM penalties automatically.
+      No human override. No political interference. The rules are code.
+    </p>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Deviation</th><th>Consecutive Quarters</th><th>Penalty</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>≤ 2σ</td><td>Any</td><td><span class="badge badge-success">None (Green Zone)</span></td></tr>
+          <tr><td>&gt; 2σ</td><td>1</td><td><span class="badge badge-warning">Warning (Yellow Zone)</span></td></tr>
+          <tr><td>&gt; 2σ</td><td>2</td><td>Voting weight reduced by 10%</td></tr>
+          <tr><td>&gt; 2σ</td><td>3</td><td>Voting weight reduced by 20%</td></tr>
+          <tr><td>&gt; 2σ</td><td>4+</td><td><strong>Suspended (weight = 0)</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>6. Systemic Safety (VaR Stress Test)</h2>
+    <p>
+      We ran 100,000 Monte Carlo simulations to test whether the Afro could trigger
+      a systemic banking crisis.
+    </p>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Metric</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Total EAC Banking Assets</td><td>$88B</td></tr>
+          <tr><td>Max Afro Exposure</td><td>$440M</td></tr>
+          <tr><td>99% VaR (1-in-100)</td><td>$4.4M</td></tr>
+          <tr><td>Maximum Simulated Loss</td><td>$4.9M</td></tr>
+          <tr><td><strong>Max Loss as % of Assets</strong></td><td><strong>&lt;0.6%</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      <strong>Conclusion:</strong> Even in total failure, the Afro cannot trigger a
+      systemic banking crisis. The pilot is systemically safe.
+    </p>
+
+    <div class="card card-accent mt-4">
+      <p style="margin-bottom: 0;">
+        <a href="/research.html" class="btn btn-primary">Read the full research framework →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="50" cy="30" r="20" stroke="#f5b342" stroke-width="3" fill="none"/>
+            <circle cx="32" cy="65" r="20" stroke="#2d6b52" stroke-width="3" fill="none"/>
+            <circle cx="68" cy="65" r="20" stroke="#2a7ab8" stroke-width="3" fill="none"/>
+            <circle cx="50" cy="53" r="4" fill="#f5b342"/>
+          </svg>
+          The Afro Project
+        </div>
+        <p class="footer-tagline">
+          A cointegration-based monetary architecture for intra-African trade.
+          PhD research at McGill University.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Project</h4>
+        <ul>
+          <li><a href="/problem.html">The Problem</a></li>
+          <li><a href="/solution.html">The Solution</a></li>
+          <li><a href="/architecture.html">Architecture</a></li>
+          <li><a href="/blog.html">Journal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="/research.html">PhD Framework</a></li>
+          <li><a href="/policy.html">Policy</a></li>
+          <li><a href="/assets/pdf/executive-summary.pdf">Executive Summary</a></li>
+          <li><a href="/assets/pdf/technical-annex.pdf">Technical Annex</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://consilium-cfa.com" class="founder-link">Consilium-CFA</a></li>
+          <li><a href="https://github.com/aymar73" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:contact@afroproject.africa">Email</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 The Afro Project. All rights reserved.</span>
+      <span>
+        A research initiative by <a href="https://consilium-cfa.com" class="founder-link">Consilium-CFA</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+
+</body>
+</html>

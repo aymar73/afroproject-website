@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAN Explained From Scratch — The Afro Project</title>
+  <meta name="description" content="A layman's guide to Kolmogorov-Arnold Networks — from the simplest neuron to the theorem that makes KAN the most interpretable AI architecture for central banks.">
+  <meta name="keywords" content="Kolmogorov-Arnold Networks, KAN, explainable AI, neural networks, monetary policy, Afro Project">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/afro.css">
+
+  <!-- MathJax for formula rendering -->
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+  <!-- SEO: Open Graph -->
+  <meta property="og:title" content="KAN Explained From Scratch">
+  <meta property="og:description" content="A layman's guide to Kolmogorov-Arnold Networks — the AI architecture that shows its work.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://afroproject.africa/blog/kan-explained-from-scratch.html">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="nav-brand">
+      <svg class="nav-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="30" r="20" stroke="#f5b342" stroke-width="3" fill="none"/>
+        <circle cx="32" cy="65" r="20" stroke="#2d6b52" stroke-width="3" fill="none"/>
+        <circle cx="68" cy="65" r="20" stroke="#2a7ab8" stroke-width="3" fill="none"/>
+        <circle cx="50" cy="53" r="4" fill="#f5b342"/>
+      </svg>
+      Afro Project
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../problem.html">Problem</a></li>
+      <li><a href="../solution.html">Solution</a></li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../blog.html" class="active">Journal</a></li>
+      <li><a href="../policy.html">Policy</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="section">
+  <div class="container">
+    <article class="post-article">
+
+      <span class="post-category">Explainer</span>
+      <h1>KAN Explained From Scratch</h1>
+      <div class="post-meta">
+        <span>October 2026</span>
+        <span>·</span>
+        <span>12 min read</span>
+        <span>·</span>
+        <span>Technical Foundations</span>
+      </div>
+
+      <p class="lead" style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
+        In the Afro Project, we use a new class of artificial intelligence called
+        <strong>Kolmogorov-Arnold Networks (KAN)</strong> to govern monetary policy. 
+	What is a KAN, and why should a central banker trust it more than a conventional
+        neural network? This essay answers those questions — starting from the simplest
+        possible neural network and building up, one step at a time.
+      </p>
+
+      <h2>Part 1: The Simplest Neural Network</h2>
+
+      <h3>The Basic Unit: A Neuron</h3>
+
+      <p>
+        Imagine we want to predict whether someone will buy a house based on
+        <strong>two inputs</strong>: their salary \( x_1 \), and the house price \( x_2 \).
+      </p>
+
+      <p>A single neuron does exactly this:</p>
+
+      \[ \text{output} = w_1 \cdot x_1 + w_2 \cdot x_2 + b \]
+
+      <p>
+        <strong>In plain English:</strong> "Multiply salary by some importance \( w_1 \),
+        multiply price by some importance \( w_2 \), add them up, then add a baseline \( b \)."
+      </p>
+
+      <p>
+        The \( w \) values are <strong>weights</strong> — they tell us how important each
+        input is. For example:
+      </p>
+
+      \[ \text{output} = 0.8 \cdot \text{salary} - 0.5 \cdot \text{price} + 10 \]
+
+      <p>
+        This says: "Salary matters a lot (0.8). Price matters less, and negatively (-0.5).
+        Baseline is 10."
+      </p>
+
+      <h3>The Problem: Straight Lines Only</h3>
+
+      <p>
+        A single neuron can only draw <strong>straight lines</strong>. But the real world is
+        not linear. The relationship between salary and house-buying is not a straight line
+        — it is an S-curve. Below a certain salary, we cannot buy. Above it, we can.
+        In between, it is gradual.
+      </p>
+
+      <p>
+        <strong>Solution:</strong> Stack neurons in layers, and add a <strong>nonlinear
+        activation function</strong> between them:
+      </p>
+
+      \[ \text{output} = \sigma(w_1 x_1 + w_2 x_2 + b) \]
+
+      <p>Where \( \sigma \) is something like:</p>
+
+      <ul>
+        <li><strong>Sigmoid:</strong> \( \sigma(z) = \frac{1}{1 + e^{-z}} \) — an S-shaped curve</li>
+        <li><strong>ReLU:</strong> \( \sigma(z) = \max(0, z) \) — cuts off negatives</li>
+        <li><strong>Tanh:</strong> \( \sigma(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}} \) — S-shaped, centered at zero</li>
+      </ul>
+
+      <h3>The Full Network: Stacking Layers</h3>
+
+      <p>A complete neural network is just this, repeated:</p>
+
+      \[ h_1 = \sigma(W_1 x + b_1) \]
+      \[ h_2 = \sigma(W_2 h_1 + b_2) \]
+      \[ y = W_3 h_2 + b_3 \]
+
+      <p>
+        The structure is: <code>Input → [Linear + Activation] → [Linear + Activation] → Output</code>
+      </p>
+
+      <p>
+        <strong>What the network learns:</strong> The weights \( W \) and biases \( b \).
+        The <strong>activation functions \( \sigma \) are fixed</strong> — we choose them
+        before training and they never change.
+      </p>
+
+      <h3>The Key Insight: What KAN Changes</h3>
+
+      <p>In a standard neural network:</p>
+
+      <table>
+        <thead>
+          <tr><th>Component</th><th>Learnable?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Weights \( W \)</td><td>✅ Yes — adjusted during training</td></tr>
+          <tr><td>Biases \( b \)</td><td>✅ Yes</td></tr>
+          <tr><td>Activation functions \( \sigma \)</td><td>❌ No — fixed before training</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        <strong>Think of it like a recipe:</strong> We have a fixed set of cooking
+        techniques (fry, boil, bake) — these are the activation functions. We can adjust
+        the <em>amounts</em> of each ingredient (weights) — but we cannot change the
+        techniques.
+      </p>
+
+      <p>
+        <strong>KAN changes this.</strong> In a KAN, the activation functions themselves
+        are learnable. We are not just adjusting amounts — we are inventing new cooking
+        techniques.
+      </p>
+
+      <h2>Part 2: What KAN Actually Does</h2>
+
+      <h3>The KAN Neuron</h3>
+
+      <p>A KAN neuron does <strong>not</strong> do:</p>
+
+      \[ \sigma(w_1 x_1 + w_2 x_2 + b) \]
+
+      <p>A KAN neuron does:</p>
+
+      \[ \phi_1(x_1) + \phi_2(x_2) \]
+
+      <p>
+        Where \( \phi_1 \) and \( \phi_2 \) are <strong>learnable functions</strong>
+        — not fixed.
+      </p>
+
+      <blockquote>
+        <strong>Standard NN:</strong> Multiply input by weight, add them up, then apply
+        a fixed curve.<br>
+        <strong>KAN:</strong> Pass each input through its own learnable curve, then add
+        the results.
+      </blockquote>
+
+      <h3>What Does "Learnable Function" Mean?</h3>
+
+      <p>
+        A learnable function is typically represented as a <strong>spline</strong> — a
+        piecewise polynomial. In plain English: draw a smooth curve by connecting dots
+        with simple curved segments.
+      </p>
+
+      <p>Suppose we want to learn the function \( \phi(x) = x^2 \). A spline approximates it like this:</p>
+
+      <pre><code>x:    -3   -2   -1    0    1    2    3
+φ(x):  9    4    1    0    1    4    9</code></pre>
+
+      <p>
+        The spline fits a smooth curve through these points. The <strong>positions of the
+        points</strong> (called knots) and the <strong>curvature between them</strong> are
+        the learnable parameters.
+      </p>
+
+      <p>In a KAN, each \( \phi \) is a spline. The network learns:</p>
+
+      <ul>
+        <li>Where to place the knots</li>
+        <li>How to curve between them</li>
+        <li>What shape best fits the data</li>
+      </ul>
+
+      <h3>The Kolmogorov-Arnold Theorem: Why This Works</h3>
+
+      <p>
+        In 1957, Andrey Kolmogorov — one of the greatest mathematicians of the 20th
+        century — proved something remarkable:
+      </p>
+
+      <blockquote>
+        <strong>Any continuous function of many variables can be written as a sum of
+        continuous functions of one variable.</strong>
+      </blockquote>
+
+      <p>Mathematically:</p>
+
+      \[ f(x_1, x_2, \ldots, x_n) = \sum_{q=1}^{2n+1} \Phi_q\left(\sum_{p=1}^{n} \phi_{q,p}(x_p)\right) \]
+
+      <p>
+        <strong>In plain English:</strong> Any complicated relationship between many inputs
+        can be broken down into simple one-dimensional curves that are added together.
+      </p>
+
+      <p>
+        <strong>Why this matters for KAN:</strong> The theorem <em>guarantees</em> that a
+        KAN with the right structure can represent <em>any</em> continuous function exactly.
+        We are not hoping the network learns something useful — we have a mathematical
+        proof that the solution exists within the architecture.
+      </p>
+
+      <h2>Part 3: A Concrete Example</h2>
+
+      <h3>The Problem: Learn \( f(x, y) = x^2 + y^2 \)</h3>
+
+      <p>
+        This is a simple bowl-shaped function. It is not linear, so a single standard
+        neuron cannot learn it exactly.
+      </p>
+
+      <h3>Standard NN Approach</h3>
+
+      <pre><code>Input (x, y) → [Linear: w₁x + w₂y + b] → [ReLU] → [Linear] → Output</code></pre>
+
+      <p>
+        The network approximates the bowl with many small straight-line pieces. It needs
+        <strong>many neurons</strong> to get a good approximation.
+      </p>
+
+      <h3>KAN Approach</h3>
+
+      <pre><code>Input (x, y) → [φ₁(x) + φ₂(y)] → Output</code></pre>
+
+      <p>The network learns:</p>
+
+      <ul>
+        <li>\( \phi_1(x) \approx x^2 \)</li>
+        <li>\( \phi_2(y) \approx y^2 \)</li>
+      </ul>
+
+      <p>And then <strong>adds them</strong>. Done.</p>
+
+      <p>
+        <strong>Why KAN is more efficient:</strong> It learns the <em>structure</em> of the
+        problem. The function is a sum of two one-dimensional functions — KAN captures
+        this exactly. A standard NN has to learn it from scratch with many parameters.
+      </p>
+
+      <h3>Visual Comparison</h3>
+
+      <table>
+        <thead>
+          <tr><th>Aspect</th><th>Standard NN</th><th>KAN</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Parameters</strong></td><td>Weights on edges</td><td>Functions on edges</td></tr>
+          <tr><td><strong>Activation</strong></td><td>Fixed (ReLU, sigmoid)</td><td>Learnable (splines)</td></tr>
+          <tr><td><strong>Interpretability</strong></td><td>Black box</td><td>Each \( \phi \) can be plotted</td></tr>
+          <tr><td><strong>Efficiency</strong></td><td>Needs many neurons</td><td>Needs fewer parameters</td></tr>
+          <tr><td><strong>Extrapolation</strong></td><td>Poor outside training range</td><td>Better (splines have local support)</td></tr>
+          <tr><td><strong>Formula extraction</strong></td><td>Nearly impossible</td><td>Possible (read the splines)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Part 4: Why This Matters for the Afro Project</h2>
+
+      <p>
+        In the Afro Project, we are trying to model economic relationships that follow
+        <strong>known laws</strong>:
+      </p>
+
+      <ul>
+        <li><strong>Error Correction:</strong> Deviations should decay exponentially</li>
+        <li><strong>Peg Stability:</strong> Price should oscillate back to target</li>
+        <li><strong>Optimal Control:</strong> Policy should follow the Bellman equation</li>
+      </ul>
+
+      <p>
+        <strong>With a standard NN:</strong> We throw data at it and hope it learns
+        something. It might. Or it might learn a spurious pattern. We cannot tell.
+      </p>
+
+      <p>
+        <strong>With a KAN:</strong> We throw data at it and <em>inspect the learned
+        functions</em>. If the KAN learns \( \phi(x) \approx e^{-0.5x} \), we know it
+        discovered exponential decay. If it learns \( \phi(x) \approx \sin(x) \), we know
+        it discovered oscillation.
+      </p>
+
+      <p style="font-size: 1.15rem; font-weight: 600; color: var(--navy);">
+        We can read the mind of the network.
+      </p>
+
+      <p>This is why KAN is perfect for central banks:</p>
+
+      <ul>
+        <li>They can <strong>see</strong> the policy rule</li>
+        <li>They can <strong>verify</strong> it follows economic laws</li>
+        <li>They can <strong>trust</strong> it because it is not a black box</li>
+      </ul>
+
+      <h2>Part 5: The One-Paragraph Summary</h2>
+
+      <blockquote style="font-size: 1.1rem;">
+        A standard neural network is like a chef who can only use a fixed set of cooking
+        techniques — frying, boiling, baking — but can adjust the amounts of each
+        ingredient. A KAN is like a chef who can invent entirely new cooking techniques.
+        Instead of just tuning numbers (weights), a KAN learns the shapes of the functions
+        themselves. This makes it more powerful, more interpretable, and — crucially for
+        monetary policy — more trustworthy. We can look at a KAN's learned functions and
+        see the economic laws it has discovered. A standard neural network just gives us
+        a number; a KAN gives us a formula.
+      </blockquote>
+
+      <p style="font-size: 1.15rem; font-weight: 600; color: var(--gold-dark); text-align: center; margin-top: 2rem;">
+        That is the power we are bringing to African monetary policy.
+      </p>
+
+      <div class="post-footer">
+        <a href="../blog.html" class="back-link">← Back to Journal</a>
+        <a href="001-why-africa-needs-digital-currency.html" class="back-link">Read: Why Africa Needs a Digital Currency →</a>
+      </div>
+
+    </article>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+      <span>© 2026 The Afro Project. All rights reserved.</span>
+      <span>A research initiative by <a href="https://consilium-cfa.com" class="founder-link">Consilium-CFA</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

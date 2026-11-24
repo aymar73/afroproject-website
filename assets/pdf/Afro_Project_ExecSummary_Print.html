@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Afro Project - Executive Summary</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: white; color: #1a2332; padding: 40px; line-height: 1.5; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 { font-size: 2.4rem; color: #0a1128; border-bottom: 4px solid #f5b342; padding-bottom: 10px; margin-bottom: 20px; }
+        h2 { font-size: 1.4rem; color: #f5b342; margin-top: 20px; margin-bottom: 8px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 15px 0; }
+        .card { background: #f8faff; padding: 15px; border-radius: 8px; border-left: 4px solid #f5b342; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.9rem; }
+        th { background: #0a1128; color: white; padding: 8px 12px; text-align: left; }
+        td { padding: 8px 12px; border-bottom: 1px solid #eef2f7; }
+        .highlight { color: #d4880f; font-weight: 600; }
+        .badge { background: #e3f2e9; color: #1e6b3b; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; }
+        .footer { margin-top: 30px; border-top: 1px solid #eef2f7; padding-top: 20px; font-size: 0.9rem; color: #5a6f8a; }
+        @media print { body { padding: 20px; } .card { break-inside: avoid; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>AFRO PROJECT</h1>
+    <p style="font-size: 1.2rem; margin-bottom: 20px;">A Cointegration-Based Monetary Architecture for Intra-African Trade</p>
+
+    <h2>The Problem</h2>
+    <div class="grid-2">
+        <div>
+            <table>
+                <tr><td>Number of currencies</td><td><strong>42</strong></td></tr>
+                <tr><td>Intra-African trade (2025)</td><td><strong>$180B</strong></td></tr>
+                <tr><td>Average transaction cost</td><td><strong>8%</strong></td></tr>
+                <tr><td>Annual leakage</td><td><strong>$14.4B</strong></td></tr>
+                <tr><td>Projected leakage by 2035</td><td><strong>$36B</strong></td></tr>
+            </table>
+        </div>
+        <div class="card">
+            <p style="font-weight:600;">Key Insight</p>
+            <p>Cointegration analysis reveals 3 viable zones: <span class="highlight">West</span>, <span class="highlight">East</span>, and <span class="highlight">South</span>. Cross-zone cointegration does NOT exist.</p>
+        </div>
+    </div>
+
+    <h2>The Solution</h2>
+    <table>
+        <tr><th>Currency</th><th>Zone</th><th>Peg</th><th>Backing</th></tr>
+        <tr><td><strong>Afro-W</strong></td><td>West Africa</td><td>+2%</td><td>Gold, Cocoa, Oil</td></tr>
+        <tr><td><strong>Afro-E</strong></td><td>East Africa</td><td>0%</td><td>Tea, Coffee, Tourism</td></tr>
+        <tr><td><strong>Afro-S</strong></td><td>Southern Africa</td><td>-2%</td><td>Platinum, Diamonds, Manufacturing</td></tr>
+    </table>
+
+    <h2>The Enforcer: Error Correction Mechanism (ECM)</h2>
+    <ul>
+        <li>VECM runs quarterly. Deviation > 2σ for 2 quarters → Voting rights reduced by 10%.</li>
+        <li>Deviation > 2σ for 4 quarters → <strong>Automatic suspension</strong>.</li>
+        <li>No human override — enforced by Hyperledger smart contract.</li>
+    </ul>
+
+    <h2>Systemic Safety: VaR Stress Test</h2>
+    <div class="grid-2">
+        <div>
+            <table>
+                <tr><td>Total EAC Banking Assets</td><td>$88B</td></tr>
+                <tr><td>Max Afro Exposure</td><td>$440M</td></tr>
+                <tr><td>99% VaR (1-in-100)</td><td>$4.4M</td></tr>
+                <tr><td>Max Loss as % of Assets</td><td><span class="badge">< 0.6%</span></td></tr>
+            </table>
+        </div>
+        <div class="card">
+            <p><strong>Conclusion:</strong> Even in total failure, the Afro cannot trigger a banking crisis.</p>
+        </div>
+    </div>
+
+    <h2>Current Status</h2>
+    <ul>
+        <li>✅ Cointegration screening complete (54 countries)</li>
+        <li>✅ VECM model developed</li>
+        <li>✅ VaR stress test completed</li>
+        <li>✅ ECM smart contract prototype deployed</li>
+        <li>🔄 East African pilot preparing (Kenya, Rwanda, Uganda)</li>
+        <li>🔄 PhD research in progress (McGill University)</li>
+    </ul>
+
+    <h2>The Ask</h2>
+    <ol>
+        <li><strong>Institutional partnership</strong>: Align the Afro framework with AfCFTA protocols and PAPSS.</li>
+        <li><strong>Data access</strong>: Anonymized trade flow data to calibrate VECM models.</li>
+        <li><strong>Endorsement</strong>: A letter of support for our pilot and PhD research.</li>
+    </ol>
+
+    <div class="footer">
+        <p><strong>Contact:</strong> [Your Full Name] | PhD Candidate, McGill University</p>
+        <p>[Your Email] | [Your Phone]</p>
+    </div>
+</div>
+</body>
+</html>
